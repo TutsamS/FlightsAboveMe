@@ -1,9 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Tue Oct  1 22:31:36 2024
-
-@author: visingh
+@author: tutsamsingh
 """
 import geopy
 from geopy.geocoders import Nominatim
@@ -27,8 +23,8 @@ def get_flight_details(icao24):
     current_time = int(time.time())
     begin_time = current_time - 3600 * 24  # Start time (24 hours ago)
     
-    USERNAME = 'vikramsinghfremont'
-    PASSWORD = '51n9hOs!'
+    #USERNAME = XXXXXXXXXXX
+    #PASSWORD = XXXXXXXXXXX
     url = f"https://opensky-network.org/api/flights/aircraft?icao24={icao24}&begin={begin_time}&end={current_time}"
     
     try:
@@ -80,8 +76,8 @@ def get_bounding_box(city_location, distance_km=10):
 
 
 def get_flights_in_area(latitude_min, latitude_max, longitude_min, longitude_max):
-    USERNAME = 'vikramsinghfremont'
-    PASSWORD = '51n9hOs!'
+    #USERNAME = XXXXXXXXXXXXXXXXXX
+    #PASSWORD = XXXXXXXXXXXXXXXXXX
 
     url = "https://opensky-network.org/api/states/all"
     
@@ -165,7 +161,7 @@ if __name__ == "__main__":
             print(f"Flight {flight['callsign']} (ICAO24: {flight['icao24']}) from {flight['origin_country']} at [{flight['latitude']}, {flight['longitude']}] at altitude {flight['altitude']} meters.")
             urlparams = urlparams + str(flight['latitude']) + "," + str(flight['longitude']) + "|"
         
-        urlparams = urlparams + "&size=1280x1280&key=AIzaSyD4ibafqYQTH9wA3OaoTeMWUB-tNo6GxFg"     
+        #urlparams = urlparams + "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"     
         print(urlparams)
         webbrowser.open('https://maps.googleapis.com/maps/api/staticmap?' + urlparams) 
     else:
