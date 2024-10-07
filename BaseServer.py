@@ -1,9 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Wed Oct  2 14:27:53 2024
-
-@author: visingh
+@author: tutsamsingh
 """
 
 import flightsbackend
@@ -59,10 +55,6 @@ class MyServer(BaseHTTPRequestHandler):
         sc = sc + "marker"+ str(suf) + ".addListener('mouseout', function() {infoWindow"+ str(suf) + ".close();});"
         return sc
     
-    #label: { text: "' + label + '",fontWeight: "bold"}
-    #"setTimeout(function() {document.querySelector('.gm-ui-hover-effect').style.display = 'none';}, 10);"
-    #".gm-ui-hover-effect {display: none;}"
-    
     def do_GET(self):
         if self.path == "/pm4.png":
             self.serve_image()
@@ -96,7 +88,7 @@ class MyServer(BaseHTTPRequestHandler):
                 self.send_header("Content-type", "text/html")
                 self.end_headers()
                 self.wfile.write(bytes("<html><head><title>The Flight Project</title>", "utf-8"))
-                self.wfile.write(bytes('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4ibafqYQTH9wA3OaoTeMWUB-tNo6GxFg"></script>', "utf-8"))
+                #self.wfile.write(bytes('<script src="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"></script>', "utf-8"))
                 self.wfile.write(bytes('<script>' +myscrpt + buttonClickScript + '</script>', "utf-8"))
                 self.wfile.write(bytes("<style>html, body {height: 100%;margin: 0;padding: 0;overflow: hidden;} #map {height: 100%;width: 100%;position: fixed;top: 0;left: 0;z-index: 0;z-index: 0;}", "utf-8"))
                 self.wfile.write(bytes(".top-center-form {position: absolute;top: 20px;left: 50%;transform: translateX(-50%);background: rgba(255, 255, 255, 0.8);padding: 10px;border-radius: 8px;box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);z-index: 1;} .gm-ui-hover-effect {display: none;}</style>", "utf-8"))
