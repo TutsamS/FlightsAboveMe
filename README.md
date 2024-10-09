@@ -8,6 +8,7 @@ Python Libraries Needed:
 Additional Requirements:
 - OpenSky Python API key
   - https://openskynetwork.github.io/opensky-api/python.html
+  - Create account here: https://opensky-network.org/index.php?option=com_users&view=registration
 - Google Maps API key 
   - https://developers.google.com/maps/documentation/javascript/get-api-key
 
