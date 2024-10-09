@@ -13,4 +13,4 @@ Additional Requirements:
   - https://developers.google.com/maps/documentation/javascript/get-api-key
 
 How to run:
-Run the baseserver.py and open http://localhost:8080/<cityname> in your browser (include a city like San Francisco or Newark).
+- Run the baseserver.py and open http://localhost:8080/cityname in your browser (include a city like San Francisco or Newark in place of "cityname").
