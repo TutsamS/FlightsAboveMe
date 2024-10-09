@@ -88,7 +88,7 @@ class MyServer(BaseHTTPRequestHandler):
                 self.send_header("Content-type", "text/html")
                 self.end_headers()
                 self.wfile.write(bytes("<html><head><title>The Flight Project</title>", "utf-8"))
-                #self.wfile.write(bytes('<script src="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"></script>', "utf-8"))
+                #INSERT GOOGLE MAPS API KEY IN PLACE OF "XXX" self.wfile.write(bytes('<script src="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"></script>', "utf-8"))
                 self.wfile.write(bytes('<script>' +myscrpt + buttonClickScript + '</script>', "utf-8"))
                 self.wfile.write(bytes("<style>html, body {height: 100%;margin: 0;padding: 0;overflow: hidden;} #map {height: 100%;width: 100%;position: fixed;top: 0;left: 0;z-index: 0;z-index: 0;}", "utf-8"))
                 self.wfile.write(bytes(".top-center-form {position: absolute;top: 20px;left: 50%;transform: translateX(-50%);background: rgba(255, 255, 255, 0.8);padding: 10px;border-radius: 8px;box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);z-index: 1;} .gm-ui-hover-effect {display: none;}</style>", "utf-8"))
@@ -98,7 +98,6 @@ class MyServer(BaseHTTPRequestHandler):
                 self.wfile.write(bytes('<div class="top-center-form"> <input type="text" id="locationInput" placeholder="Enter location" /><button onclick="redirectToLocation()">Go</button></div>', "utf-8"))
                 self.wfile.write(bytes("</body></html>", "utf-8"))
             except Exception as e:
-                #myscript2 = 
                 self.send_response(200)
                 self.send_header("Content-type", "text/html")
                 self.end_headers()
