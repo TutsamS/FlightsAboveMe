@@ -6,8 +6,10 @@ Python Libraries Needed:
 - requests
 
 Additional Requirements:
-- OpenSky API key
-- Google API key
+- OpenSky Python API key
+  - https://openskynetwork.github.io/opensky-api/python.html
+- Google Maps API key 
+  - https://developers.google.com/maps/documentation/javascript/get-api-key
 
 How to run:
 Run the baseserver.py and open http://localhost:8080/<cityname> in your browser (include a city like San Francisco or Newark).
