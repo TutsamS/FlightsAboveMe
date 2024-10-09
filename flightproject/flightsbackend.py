@@ -22,7 +22,8 @@ def get_city_location(city_name):
 def get_flight_details(icao24):
     current_time = int(time.time())
     begin_time = current_time - 3600 * 24  # Start time (24 hours ago)
-    
+
+    #INSERT OPENSKY API USERNAME AND PASSWORD BELOW AND UNCOMMENT
     #USERNAME = XXXXXXXXXXX
     #PASSWORD = XXXXXXXXXXX
     url = f"https://opensky-network.org/api/flights/aircraft?icao24={icao24}&begin={begin_time}&end={current_time}"
@@ -76,6 +77,7 @@ def get_bounding_box(city_location, distance_km=10):
 
 
 def get_flights_in_area(latitude_min, latitude_max, longitude_min, longitude_max):
+    #INSERT OPENSKY API USERNAME AND PASSWORD BELOW AND UNCOMMENT
     #USERNAME = XXXXXXXXXXXXXXXXXX
     #PASSWORD = XXXXXXXXXXXXXXXXXX
 
@@ -135,35 +137,3 @@ def get_flights_over_city(city_location):
     longitude_max = bb['longitude_max']
     flights = get_flights_in_area(latitude_min, latitude_max, longitude_min, longitude_max)
     return flights
-    
-
-
-if __name__ == "__main__":        
-    # Define your city's bounding box (latitude and longitude)
-    # Example: Coordinates for New York City, USA
-    # latitude_min = 40.4774  # Minimum latitude
-    # latitude_max = 40.9176  # Maximum latitude
-    # longitude_min = -74.2591  # Minimum longitude
-    # longitude_max = -73.7004  # Maximum longitude
-    # bounding_box = get_bounding_box("New York, USA", distance_km=10)
-    # latitude_min = bounding_box['latitude_min']
-   #  latitude_max = bounding_box['latitude_max']
-    # longitude_min = bounding_box['longitude_min']
-   #  longitude_max = bounding_box['longitude_max']
-    
-    # Get flights over the specified city
-    flights = get_flights_over_city(get_city_location("Seattle, USA"))
-    
-    # Print the results
-    if isinstance(flights, list):
-        urlparams = "markers="
-        for flight in flights:
-            print(f"Flight {flight['callsign']} (ICAO24: {flight['icao24']}) from {flight['origin_country']} at [{flight['latitude']}, {flight['longitude']}] at altitude {flight['altitude']} meters.")
-            urlparams = urlparams + str(flight['latitude']) + "," + str(flight['longitude']) + "|"
-        
-        #urlparams = urlparams + "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"     
-        print(urlparams)
-        webbrowser.open('https://maps.googleapis.com/maps/api/staticmap?' + urlparams) 
-    else:
-        print(flights)
-
